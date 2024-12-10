@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+</head>
+<body>
+    {% if success %}
+        <h1>Thank you for your booking!</h1>
+        <p>Your booking was successful. We will contact you shortly.</p>
+    {% else %}
+        <h1>Book a Viewing</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    {% endif %}
+</body>
+</html>
+

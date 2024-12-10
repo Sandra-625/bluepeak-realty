@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+    <link rel="stylesheet" href="../../static/style/bootstrap/css/bootstrap-grid.min.css">
+</head>
+<body>
+    {% include 'base.html' %}
+
+
+    <section class="hero" style="background-image: url=">
+        <div class="hero-content">
+            <h1>Available Properties</h1>
+            <p>Explore the best properties in the market with detailed information.</p>
+        </div>
+    </section>
+
+
+    <section class="properties">
+        <div class="container">
+            <h2>Our Listings</h2>
+            <div class="property-grid">
+                {% if properties %}
+                    {% for property in properties %}
+                    <div class="property-card">
+                        <img src="{{ property.image.url }}" alt="{{ property.title }}">
+                        <div class="property-info">
+                            <h3>{{ property.title }}</h3>
+                            <p>{{ property.description|truncatewords:15 }}</p>
+                            <p><strong>Price:</strong> ${{ property.price }}</p>
+                            <p><strong>Type:</strong> {{ property.property_type }}</p>
+                            <p><strong>Status:</strong> {{ property.status }}</p>
+                            <p><strong>Bedrooms:</strong> {{ property.bedrooms }}</p>
+                            <p><strong>Bathrooms:</strong> {{ property.bathrooms }}</p>
+                            <p><strong>Square Feet:</strong> {{ property.square_feet }} sq. ft.</p>
+                            <p><strong>Location:</strong> {{ property.location }}</p>
+                            <p><strong>Listed on:</strong> {{ property.created_at|date:"M d, Y" }}</p>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No properties are currently available. Please check back later!</p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% include 'footer.html' %}
+</body>
+</html>
+

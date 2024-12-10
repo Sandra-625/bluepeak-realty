@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">{{ property.title }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{ property.title }}</h4>
+            <p class="card-text"><strong>Price:</strong> ${{ property.price }}</p>
+            <p class="card-text"><strong>Type:</strong> {{ property.type }}</p>
+            <p class="card-text"><strong>Status:</strong> {{ property.status }}</p>
+            <p class="card-text"><strong>Bedrooms:</strong> {{ property.bedrooms }}</p>
+            <p class="card-text"><strong>Bathrooms:</strong> {{ property.bathrooms }}</p>
+            <p class="card-text"><strong>Square Feet:</strong> {{ property.square_feet }}</p>
+            <p class="card-text"><strong>Location:</strong> {{ property.location }}</p>
+            <p class="card-text"><strong>Listed On:</strong> {{ property.listed_on }}</p>
+            <p class="card-text">{{ property.description }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
